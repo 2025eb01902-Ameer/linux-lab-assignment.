@@ -1,0 +1,87 @@
+LINUX ENVIRONMENT VERIFICATION REPORT
+
+
+1. Username and Groups
+   
+   Command:
+
+   whoami
+   id
+   
+   Output:
+
+   whoami:
+   amd_ameer
+
+   id:
+   uid=1000(amd_ameer) gid=1000(amd_ameer) groups=1000(amd_ameer),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users)
+   
+   Observation:
+   The whoami command displayed my current username, confirming the account I am logged in with. The id command showed my user ID (UID), group ID (GID), and the groups my account belongs to. This information helps verify the user's identity and access permissions in the Linux system.
+  
+2. Current Shell
+
+   Command:
+   
+   echo $SHELL
+
+   Output:
+   /bin/bash
+   
+   Observation:
+   The command displayed the current shell being used.
+   The output indicated which shell was active for the current session.
+   This information is useful because different shells provide different features and command behavior.
+
+
+3. Current Working Directory
+
+   Command:
+   pwd
+
+   Output:
+   /home/amd_ameer/linux-lab-assignment./Q1-Environment-Verification
+
+   Observation:
+   The command displayed the current working directory.
+   The output showed the exact location where commands were being executed.
+   Knowing the current directory helps avoid creating or modifying files in the wrong location.
+
+
+4. Files and Directories
+
+   Command:
+   ls -la
+
+   Output:
+   total 8
+   drwxr-xr-x 2 amd_ameer amd_ameer 4096 Jul  2 17:33 .
+   drwxr-xr-x 8 amd_ameer amd_ameer 4096 Jul  2 17:33 ..
+   
+   Observation:
+   The command listed all files and directories, including hidden files.
+   The output showed file names, permissions, ownership, and other details.
+   This helps users understand the contents and permissions of the current directory.
+
+
+5. Network Connectivity
+
+   Command:
+   ping -c 4 google.com
+
+   Output:
+   PING google.com (142.251.221.142) 56(84) bytes of data.
+   64 bytes from lcmaaa-as-in-f14.1e100.net (142.251.221.142): icmp_seq=1 ttl=116 time=15.3 ms
+   64 bytes from lcmaaa-as-in-f14.1e100.net (142.251.221.142): icmp_seq=2 ttl=116 time=17.7 ms
+   64 bytes from lcmaaa-as-in-f14.1e100.net (142.251.221.142): icmp_seq=3 ttl=116 time=20.6 ms
+   64 bytes from lcmaaa-as-in-f14.1e100.net (142.251.221.142): icmp_seq=4 ttl=116 time=16.4 ms
+
+   --- google.com ping statistics ---
+   4 packets transmitted, 4 received, 0% packet loss, time 3006ms
+   rtt min/avg/max/mdev = 15.331/17.497/20.591/1.967 ms
+   
+
+   Observation:
+   The command tested network connectivity.
+   The output showed whether packets were successfully sent and received.
+   This helps verify that the system has network access and can communicate with other hosts.
