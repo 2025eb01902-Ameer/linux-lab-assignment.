@@ -1,0 +1,51 @@
+IO Investigation Report
+
+1. Open Files Identified
+
+The lsof command was used to identify files currently opened by running processes. The application log file (app.log) was successfully detected while being accessed.
+
+2. File Descriptor Observations
+
+Linux uses file descriptors to manage input and output.
+
+0 – Standard Input (stdin)
+
+1 – Standard Output (stdout)
+
+2 – Standard Error (stderr)
+
+These descriptors are visible through the /proc filesystem.
+
+3. Output Redirection
+
+The > operator redirected command output into a file.
+
+The >> operator appended output to an existing file.
+
+4. Error Redirection
+
+The 2> operator redirected error messages into a separate file.
+
+The 2>&1 operator redirected both standard output and standard error into the same file.
+
+5. Resource Limits
+
+The ulimit -a command displayed system resource limits including:
+
+• Maximum open files
+
+• Stack size
+
+• Core file size
+
+• Maximum user processes
+
+• Virtual memory
+
+6. Linux File I/O
+
+Linux manages file I/O through file descriptors. Every process receives descriptors for stdin, stdout, and stderr. Additional files opened by applications receive higher numbered descriptors. Commands like lsof and the /proc filesystem allow inspection of these descriptors.
+
+7. Conclusion
+
+Linux provides efficient file management using file descriptors and supports flexible output and error redirection. The lsof and ulimit utilities are valuable for investigating file access and system resource usage.
