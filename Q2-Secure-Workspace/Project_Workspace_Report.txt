@@ -1,0 +1,90 @@
+SECURE PROJECT WORKSPACE REPORT
+
+1. Directory Structure Created
+
+Command:
+mkdir -p project/{docs,src,logs}
+tree
+
+Output:
+.
+└── project
+    ├── docs
+    ├── logs
+    └── src
+
+5 directories, 0 files
+
+
+2. File Permissions Before Modification
+
+Command:
+ls -ld project
+
+Output:
+drwxr-xr-x 5 amd_ameer amd_ameer 4096 Jul  2 19:56 project
+
+Observation:
+The command displayed the current permissions of the project directory. The output showed the access rights for the owner, group, and other users before any changes were made. Checking the existing permissions helps verify the initial security settings before modifying them.
+
+
+
+3. File Permissions After Modification
+
+Command:
+chmod 750 project
+ls -ld project
+
+Output:
+
+chmod 750 project
+(No output)
+
+ls -ld project
+drwxr-x--- 5 amd_ameer amd_ameer 4096 Jul  2 19:56 project
+
+Observation:
+The command chmod 750 project changed the permissions of the project directory. After running ls -ld project, the permissions changed from drwxr-xr-x  to drwxr-x--- . These permissions help improve the security of the project workspace by limiting unauthorized access.
+
+
+4. Ownership Details
+
+Command:
+ls -ld project
+
+Output:
+drwxr-x--- 5 amd_ameer amd_ameer 4096 Jul  2 19:56 project
+
+Observation:
+The command displayed the ownership information of the project directory. The output showed the owner name, group name, and the current permissions of the directory. Verifying ownership helps ensure that the correct user and group are responsible for managing the project files.
+
+
+5. Umask Value
+
+Command:
+umask
+
+Output:
+0022
+
+Observation:The command displayed the current umask value of the system. The output indicates the default permission mask that is applied when new files and directories are created. Understanding the umask value helps explain why newly created files receive specific default permissions.
+
+
+6. Explanation of How Permissions Protect Project Data
+
+Every file and directory in Linux has permissions for:
+
+Owner (the person who created or owns it)
+Group (a set of users)
+Others (everyone else)
+
+When I changed the permissions to 750 that means,
+7 (Owner) → Read, Write, Execute
+5 (Group) → Read, Execute
+0 (Others) → No access
+
+That gives the owner to fully manage the project files.
+Members of group can view and access the project files but cannot modify it.
+Other users cannot access the project directory at all, reducing the risk od unauthorized access or accidental changes.
+
+
